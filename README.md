@@ -1,2 +1,4 @@
-# webpack-template
-Basic webpack project template.
+# Webpack project template
+```
+Basic project template
+```
