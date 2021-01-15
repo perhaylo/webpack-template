@@ -1,16 +1,17 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+  mode: 'development',
+  entry: {
+      main: path.resolve(__dirname, './src/main.js'),
   },
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, './src'),
     disableHostCheck: true,
     compress: true,
-    port: 8080
+    port: 8080,
+    open: true
   },
   module: {
     rules: [
@@ -19,11 +20,11 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       }, {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
-          'style-loader', // 3) creates style nodes from JS strings
-          'css-loader', // 2) translates CSS into CommonJS
-          'sass-loader' // 1) compiles Sass to CSS, using Node Sass by default
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]

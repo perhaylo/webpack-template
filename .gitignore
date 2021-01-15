@@ -17,5 +17,4 @@ Thumbs.db
 *.psd
 *.pdf
 *.ai
-*.subline*
-package-lock.json
+*.subline
